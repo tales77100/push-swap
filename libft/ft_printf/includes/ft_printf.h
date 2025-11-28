@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsantini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/25 11:37:50 by jsantini          #+#    #+#             */
-/*   Updated: 2025/11/25 11:38:17 by jsantini         ###   ########.fr       */
+/*   Created: 2025/11/10 15:29:32 by jsantini          #+#    #+#             */
+/*   Updated: 2025/11/10 15:46:16 by jsantini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
+# include <stdarg.h>
+# include <unistd.h>
+# include <stdio.h>
+# include <stdint.h>
 
-
-# include "../libft/libft.h"
-
-int     parsing(int ac, char **av);
-void	algo(int *array, int nb_elem);
-
-
+int		ft_printf(const char *str, ...);
+void	ft_putchar(int c, int *count);
+void	ft_putnbr_base(unsigned long nb, char *base, int *count);
+void	ft_putnbr_unsigned(unsigned int nb, int *count);
+void	rest(va_list param, const char *str, int *count);
 #endif

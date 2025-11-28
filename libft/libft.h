@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
+# include "ft_printf/includes/ft_printf.h"
 
 //----list chaine----//
 typedef struct s_list

@@ -1,4 +1,7 @@
 FILES = srcs/main.c \
+	srcs/parsing_error.c \
+	srcs/algo.c \
+	
 	
 OBJETS = $(FILES:.c=.o)
 
@@ -10,13 +13,15 @@ NAME = push_swap
 
 LIB_PATH = libft/libft.a
 
+FT_PRINTF_PATH = libft/ft_printf/libftprintf.a
+
 all: $(NAME)
 
 make_lib:
 	make -C libft
 
 $(NAME): make_lib $(OBJETS)
-	$(CC) $(CFLAGS) $(OBJETS) $(LIB_PATH) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJETS) $(LIB_PATH) $(FT_PRINTF_PATH) -o $(NAME)
 
 clean:
 	make clean -C libft

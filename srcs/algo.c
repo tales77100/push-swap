@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   algo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsantini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/25 11:37:50 by jsantini          #+#    #+#             */
-/*   Updated: 2025/11/25 11:38:17 by jsantini         ###   ########.fr       */
+/*   Created: 2025/11/28 10:14:24 by jsantini          #+#    #+#             */
+/*   Updated: 2025/11/28 10:20:21 by jsantini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+# include "push_swap.h"
 
+void	algo(int *array, int nb_elem)
+{
+	int	i;
 
-
-# include "../libft/libft.h"
-
-int     parsing(int ac, char **av);
-void	algo(int *array, int nb_elem);
-
-
-#endif
+	i = 0;
+	if (!array)
+	{
+		ft_printf("Error\n");
+		return ;
+	}
+	while (i < nb_elem)
+	{
+		ft_printf("%d\n", array[i]);
+		i++;
+	}
+	return ;
+}

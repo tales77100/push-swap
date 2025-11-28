@@ -67,16 +67,21 @@ NAME = libft.a
 
 all: $(NAME)
 
-$(NAME): $(OBJETS)
+make_printf:
+	make -C ft_printf
+
+$(NAME): make_printf $(OBJETS)
 	ar -csr $(NAME) $(OBJETS)
 
 bonus: $(OBJETS_BONUS)
 	ar -csr $(NAME) $(OBJETS_BONUS)
 
 clean:
+	make clean -C ft_printf
 	rm -rf $(OBJETS) $(OBJETS_BONUS)
 
 fclean: clean
+	make fclean -C ft_printf
 	rm -rf $(NAME)
 
 re: fclean all
