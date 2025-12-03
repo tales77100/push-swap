@@ -37,6 +37,7 @@ static int	go_through_one(char *str)
 int	parsing(int ac, char **av)
 {
 	int	i;
+	int	j;
 
 	if (ac == 1)
 		return (1);
@@ -47,9 +48,10 @@ int	parsing(int ac, char **av)
 	{
 		while (++i < ac)
 		{
-			while (ft_isdigit(*(av[i])) == 1)
-				(av[i])++;
-			if (*(av[i]) != '\0')
+			j = 0;
+			while (ft_isdigit(av[i][j]) == 1)
+				j++;
+			if (av[i][j] != '\0')
 				return (1);
 		}
 

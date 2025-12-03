@@ -1,6 +1,10 @@
 FILES = srcs/main.c \
 	srcs/parsing_error.c \
 	srcs/algo.c \
+	srcs/utils.c \
+	srcs/stack_cmd.c \
+	
+	
 	
 	
 OBJETS = $(FILES:.c=.o)

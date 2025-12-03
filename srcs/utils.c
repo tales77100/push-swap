@@ -1,36 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsantini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/28 10:14:24 by jsantini          #+#    #+#             */
-/*   Updated: 2025/11/28 10:20:21 by jsantini         ###   ########.fr       */
+/*   Created: 2025/12/03 14:35:51 by jsantini          #+#    #+#             */
+/*   Updated: 2025/12/03 14:38:08 by jsantini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "push_swap.h"
 
-int	algo(t_stack *array, int nb_elem)
+int	tab_of_tab_len(char **temp)
 {
 	int	i;
-	t_stack	*b_buffer;
 
 	i = 0;
-	(void)nb_elem;
-	if (!array)
-		return (ft_printf("Error\n"));
-	b_buffer = ft_calloc(1, sizeof(t_stack));
-	if (!b_buffer)
-	{
-		//free_all_stack(*array);
-		return (0);
-	}
-	while (array)
-	{
-		printf("|%d|\n", *(int *)array->data);
-		stack_push(stack_pop(&array)->data, &b_buffer);
-	}
-	return (0);
+	while (temp[i] != NULL)
+		i++;
+	return (i);
 }

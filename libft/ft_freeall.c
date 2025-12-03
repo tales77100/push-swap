@@ -1,36 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo.c                                             :+:      :+:    :+:   */
+/*   ft_freeall.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsantini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/28 10:14:24 by jsantini          #+#    #+#             */
-/*   Updated: 2025/11/28 10:20:21 by jsantini         ###   ########.fr       */
+/*   Created: 2025/12/03 14:27:23 by jsantini          #+#    #+#             */
+/*   Updated: 2025/12/03 14:28:56 by jsantini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "libft.h"
 
-int	algo(t_stack *array, int nb_elem)
+void	*ft_freeall(char **temp)
 {
-	int	i;
-	t_stack	*b_buffer;
+	char	**ori;
 
-	i = 0;
-	(void)nb_elem;
-	if (!array)
-		return (ft_printf("Error\n"));
-	b_buffer = ft_calloc(1, sizeof(t_stack));
-	if (!b_buffer)
-	{
-		//free_all_stack(*array);
-		return (0);
-	}
-	while (array)
-	{
-		printf("|%d|\n", *(int *)array->data);
-		stack_push(stack_pop(&array)->data, &b_buffer);
-	}
-	return (0);
+	ori = temp;
+	while (!*temp)
+		free(*(temp++));
+	free(ori);
+	return (NULL);
 }
