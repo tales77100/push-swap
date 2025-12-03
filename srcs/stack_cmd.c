@@ -12,16 +12,36 @@
 
 #include "push_swap.h"
 
+int	stack_is_empty(t_list *head)
+{
+	int	i;
+	if (!head)
+		return (0);
+	i = 1;
+	while (head->next != NULL)
+		head = head->next;
+	while (head->prev -> NULL)
+	{
+		head = head->prev;
+		i++;
+	}
+	return (i);
+}
+
 t_stack	*stack_pop(t_stack **head)
 {
-	t_stack *temp;
+	void *temp;
+	t_stack *temp2;
 
 	while ((*head)->next != NULL)
 		*head = (*head)->next;
-	temp = *head;
+	temp = (*head)->data;
+	temp2 = *head;
 	*head = (*head)->prev;
 	if ((*head))
 		(*head)->next = NULL;
+	temp2->data = NULL;
+	free(temp2);
 	return (temp);
 }
 

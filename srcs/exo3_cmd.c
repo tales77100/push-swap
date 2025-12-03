@@ -1,36 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo.c                                             :+:      :+:    :+:   */
+/*   exo3_cmd.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsantini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/28 10:14:24 by jsantini          #+#    #+#             */
-/*   Updated: 2025/11/28 10:20:21 by jsantini         ###   ########.fr       */
+/*   Created: 2025/12/03 17:07:55 by jsantini          #+#    #+#             */
+/*   Updated: 2025/12/03 17:08:43 by jsantini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
-
-int	algo(t_stack *array, int nb_elem)
+int	rrr(t_list *a, t_list *b)
 {
-	int	i;
-	t_stack	*b_buffer;
-
-	i = 0;
-	(void)nb_elem;
-	b_buffer = NULL;
-	if (!array)
-		return (ft_printf("Error\n"));
-	while (array)
-	{
-		printf("|%d|\n", *(int *)array->data);
-		stack_push(stack_pop(&array), &b_buffer);
-	}
-	while (b_buffer)
-	{
-		printf("|%d|\n", *(int *)b_buffer->data);
-		free(stack_pop(&b_buffer));
-	}
-	return (0);
+	rra(a, 0);
+	rrb(b, 0);
+	ft_printf("rrr\n");
+	return (1);
 }

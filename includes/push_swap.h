@@ -33,7 +33,7 @@ int     parsing(int ac, char **av);
 int	algo(t_stack *array, int nb_elem);
 int     tab_of_tab_len(char **temp);
 int	stack_push(void *data, t_stack **array);
-t_stack	*stack_pop(t_stack **head);
+void	*stack_pop(t_stack **head);
 
 
 #endif
