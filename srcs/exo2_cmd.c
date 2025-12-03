@@ -14,6 +14,21 @@
 
 int	sa(t_list *a, int act)
 {
+	t_list	*temp;
+	t_list	*temp2;
+
+	if (stack_is_empty(a) <= 1)
+		return(0);
+	while (a->next != NULL)
+		a = a->next;
+	temp = a;
+	temp2 = a->prev;
+	temp2->next = NULL;
+	temp->next = temp2
+	temp->prev = temp2->prev
+	if (temp2->prev != NULL)
+		temp2->prev->next = temp;
+	temp2->prev = temp;
 	if (act != 0)
 		ft_printf("sa\n");
 	return (1)
@@ -21,6 +36,21 @@ int	sa(t_list *a, int act)
 
 int	sb(t_list *b, int act)
 {
+	t_list	*temp;
+	t_list	*temp2;
+
+	if (stack_is_empty(b) <= 1)
+		return(0);
+	while (b->next != NULL)
+		b = b->next;
+	temp = b;
+	temp2 = b->prev;
+	temp2->next = NULL;
+	temp->next = temp2
+	temp->prev = temp2->prev
+	if (temp2->prev != NULL)
+		temp2->prev->next = temp;
+	temp2->prev = temp;
 	if (act != 0)
 		ft_printf("sb\n");
 	return (1);
