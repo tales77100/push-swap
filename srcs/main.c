@@ -69,6 +69,7 @@ int	main(int argc, char **argv)
 		temp = ft_split(argv[1], ' ');
 	else
 		temp = make_tab_tab(argv, tab_of_tab_len(&(argv[1])));
-	algo(make_list(temp, tab_of_tab_len(temp)), tab_of_tab_len(temp));
+	algo(make_list(temp, tab_of_tab_len(temp)));
+	temp = ft_freeall(temp);
 	return (0);
 }

@@ -25,12 +25,13 @@ static int	go_through_one(char *str)
 	while (strs[i])
 	{
 		j = 0;
-		while (ft_isdigit(strs[i][j]) == 1)
+		while (ft_isdigit(strs[i][j]) == 1 || strs[i][j] == '-' || strs[i][j] == '+')
 				j++;
 		if (strs[i][j] != '\0')
 			return (1);
 		i++;
 	}
+	ft_freeall(strs);
 	return (0);
 }
 
@@ -49,7 +50,7 @@ int	parsing(int ac, char **av)
 		while (++i < ac)
 		{
 			j = 0;
-			while (ft_isdigit(av[i][j]) == 1)
+			while (ft_isdigit(av[i][j]) == 1 || av[i][j] == '-' || av[i][j] == '+')
 				j++;
 			if (av[i][j] != '\0')
 				return (1);

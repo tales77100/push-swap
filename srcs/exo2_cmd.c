@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "psuh_swap.h"
+# include "push_swap.h"
 
-int	sa(t_list *a, int act)
+int	sa(t_stack *a, int act)
 {
-	t_list	*temp;
-	t_list	*temp2;
+	t_stack	*temp;
+	t_stack	*temp2;
 
 	if (stack_is_empty(a) <= 1)
 		return(0);
@@ -24,20 +24,20 @@ int	sa(t_list *a, int act)
 	temp = a;
 	temp2 = a->prev;
 	temp2->next = NULL;
-	temp->next = temp2
-	temp->prev = temp2->prev
+	temp->next = temp2;
+	temp->prev = temp2->prev;
 	if (temp2->prev != NULL)
 		temp2->prev->next = temp;
 	temp2->prev = temp;
 	if (act != 0)
 		ft_printf("sa\n");
-	return (1)
+	return (1);
 }
 
-int	sb(t_list *b, int act)
+int	sb(t_stack *b, int act)
 {
-	t_list	*temp;
-	t_list	*temp2;
+	t_stack	*temp;
+	t_stack	*temp2;
 
 	if (stack_is_empty(b) <= 1)
 		return(0);
@@ -46,8 +46,8 @@ int	sb(t_list *b, int act)
 	temp = b;
 	temp2 = b->prev;
 	temp2->next = NULL;
-	temp->next = temp2
-	temp->prev = temp2->prev
+	temp->next = temp2;
+	temp->prev = temp2->prev;
 	if (temp2->prev != NULL)
 		temp2->prev->next = temp;
 	temp2->prev = temp;
@@ -56,23 +56,51 @@ int	sb(t_list *b, int act)
 	return (1);
 }
 
-int	ss(t_list *a, t_list *b)
+int	ss(t_stack *a, t_stack *b)
 {
 	sa(a, 0);
 	sb(b, 0);
 	return (1);
 }
 
-int	rra(t_list *a, int act)
+int	rra(t_stack *a, int act)
 {
+	t_stack	*tail;
+
+	if (stack_is_empty(a) <= 1)
+		return (0);
+	while (a->prev != NULL)
+		a = a->prev;
+	tail = a;
+	while (a->next != NULL)
+		a = a->next;
+	a->next = tail;
+	if (tail->next != NULL)
+		tail->next->prev = NULL;
+	tail->next = NULL;
+	tail->prev = a;
 	if (act != 0)
 		ft_printf("rra\n");
 	return (1);
 }
 
-int	rrb(t_list *b, int act)
+int	rrb(t_stack *b, int act)
 {
+	t_stack	*tail;
+
+	if (stack_is_empty(b) <= 1)
+		return (0);
+	while (b->prev != NULL)
+		b = b->prev;
+	tail = b;
+	while (b->next != NULL)
+		b = b->next;
+	b->next = tail;
+	if (tail->next != NULL)
+		tail->next->prev = NULL;
+	tail->next = NULL;
+	tail->prev = b;
 	if (act != 0)
-		ft_printf("rra\n");
+		ft_printf("rrb\n");
 	return (1);
 }

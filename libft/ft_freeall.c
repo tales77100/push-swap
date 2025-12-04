@@ -17,7 +17,7 @@ void	*ft_freeall(char **temp)
 	char	**ori;
 
 	ori = temp;
-	while (!*temp)
+	while (*temp)
 		free(*(temp++));
 	free(ori);
 	return (NULL);

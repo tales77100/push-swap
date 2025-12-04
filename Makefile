@@ -3,6 +3,9 @@ FILES = srcs/main.c \
 	srcs/algo.c \
 	srcs/utils.c \
 	srcs/stack_cmd.c \
+	srcs/exo_cmd.c \
+	srcs/exo2_cmd.c \
+	srcs/exo3_cmd.c \
 	
 	
 	

@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	rrr(t_list *a, t_list *b)
+# include "push_swap.h"
+
+int	rrr(t_stack *a, t_stack *b)
 {
 	rra(a, 0);
 	rrb(b, 0);

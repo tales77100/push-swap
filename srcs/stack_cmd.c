@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int	stack_is_empty(t_list *head)
+int	stack_is_empty(t_stack *head)
 {
 	int	i;
 	if (!head)
@@ -20,7 +20,7 @@ int	stack_is_empty(t_list *head)
 	i = 1;
 	while (head->next != NULL)
 		head = head->next;
-	while (head->prev -> NULL)
+	while (head->prev != NULL)
 	{
 		head = head->prev;
 		i++;
@@ -28,7 +28,7 @@ int	stack_is_empty(t_list *head)
 	return (i);
 }
 
-t_stack	*stack_pop(t_stack **head)
+void	*stack_pop(t_stack **head)
 {
 	void *temp;
 	t_stack *temp2;
