@@ -30,21 +30,22 @@ typedef struct s_stack
 # include "../libft/libft.h"
 
 int     parsing(int ac, char **av);
-int	algo(t_stack *array);
+t_stack	*algo(t_stack *array);
 int     tab_of_tab_len(char **temp);
 int	stack_push(void *data, t_stack **array);
 void	*stack_pop(t_stack **head);
-int	pb(t_stack *a, t_stack *b);
-int	pa(t_stack *b, t_stack *a);
-int	ra(t_stack *a, int act);
-int	rb(t_stack *b, int act);
-int	rr(t_stack *a, t_stack *b);
-int	sa(t_stack *a, int act);
-int	sb(t_stack *b, int act);
-int	ss(t_stack *a, t_stack *b);
+t_stack	*pb(t_stack **a, t_stack *b);
+t_stack	*pa(t_stack **b, t_stack *a);
+t_stack	*ra(t_stack *a, int act);
+t_stack	*rb(t_stack *b, int act);
+int	rr(t_stack **a, t_stack **b);
+t_stack	*sa(t_stack *a, int act);
+t_stack	*sb(t_stack *b, int act);
+int	ss(t_stack **a, t_stack **b);
 int	rra(t_stack *a, int act);
 int	rrb(t_stack *b, int act);
 int	rrr(t_stack *a, t_stack *b);
 int	stack_is_empty(t_stack *head);
+int	smallest_in_stack(t_stack *array, int *data);
 
 #endif

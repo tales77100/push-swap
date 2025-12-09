@@ -21,3 +21,16 @@ int	tab_of_tab_len(char **temp)
 		i++;
 	return (i);
 }
+
+int	smallest_in_stack(t_stack *array, int *data)
+{
+	if (stack_is_empty(array) <= 0)
+		return (1);
+	while (array->next != NULL)
+		array = array ->next;
+	while (array->prev != NULL && *(int *)(array->data) >= *data)
+		array = array->prev;
+	if (*(int *)(array->data) < *data)
+		return (0);
+	return (1);
+}

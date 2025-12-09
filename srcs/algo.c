@@ -16,44 +16,54 @@ void	aff_stack(t_stack *head)
 {
 	if (stack_is_empty(head) == 0)
 		return ;
-	while (head->prev != NULL)
-		head = head->prev;
+	while (head->next != NULL)
+		head = head->next;
 	while (head != NULL)
 	{
 		ft_printf("|%d|\n", *(int *)head->data);
-		head = head->next;
+		head = head->prev;
 	}
 	return ;
 }
 
 void	insertion_sort(t_stack *a, t_stack *b)
 {
-	//int	*temp;
-
-	if (stack_is_empty(b) == 0)
-		b = pb(a, b);
-	while (stack_is_empty(a) != 0)
+	b = pb(&a, b);
+	b = pb(&a, b);
+	aff_stack(a);
+	ft_printf(" -\n a\n");
+	aff_stack(b);
+	ft_printf(" -\n b\n");
+	while (stack_is_empty(a) > 3)
 	{
-		if (stack_is_empty(b) != 0 && *(int *)a->data < *(int *)b->data)
+		if (smallest_in_stack(a, b->data) || smallest_in_stack(b, a->data))
 		{
-			pa(b, a);
-			sa(a, 1);
-			pb(a, b);
-			pb(a, b);
+			a = pa(&b, a);
+			a = ra(a, 1);
 		}
-		else
-			pb(a, b);
-		printf("|a|\n");
+		if (smallest_in_stack(b, b->data))
+			b = rb(b, 1);
+		if (stack_is_empty(b) >= 2 && *(int *)b->data < *(int *)b->prev->data)
+			b = sb(b, 1);
+		b = pb(&a, b);
 		aff_stack(a);
-		printf("|b|\n");
+		ft_printf(" -\n a\n");
 		aff_stack(b);
+		ft_printf(" -\n b\n");
 	}
+	if (*(int *)a->data > *(int *)a->prev->data)
+		a = ra(a, 1);
+	a = sa(a, 1);
 	while (stack_is_empty(b) != 0)
-		pa(b, a);
-	return ;	
+		a = pa(&b, a);
+	aff_stack(a);
+	ft_printf(" -\n a\n");
+	aff_stack(b);
+	ft_printf(" -\n b\n");
+	return ;
 }
 
-int	algo(t_stack *array)
+t_stack	*algo(t_stack *array)
 {
 	int	i;
 	t_stack	*b_buffer[1];
@@ -61,9 +71,12 @@ int	algo(t_stack *array)
 	i = 0;
 	*b_buffer = NULL;
 	if (!array)
-		return (ft_printf("Error\n"));
+	{
+		ft_printf("Error\n");
+		return (NULL);
+	}
 	if (stack_is_empty(array) == 1)
-		return (1);
+		return (NULL);
 	if (stack_is_empty(array) == 2 && *(array->data) > *(array->prev->data))
 		return(ra(array, 1));
 	insertion_sort(array, *b_buffer);

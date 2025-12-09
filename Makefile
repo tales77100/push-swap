@@ -12,7 +12,7 @@ FILES = srcs/main.c \
 	
 OBJETS = $(FILES:.c=.o)
 
-CFLAGS = -Wall -Wextra -Werror -Iincludes -Ilibft/libft.h -g3
+CFLAGS = -Wall -Werror -Wextra -Iincludes -Ilibft/libft.h -g3
 
 CC = cc
 
