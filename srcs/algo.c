@@ -26,13 +26,23 @@ void	aff_stack(t_stack *head)
 	return ;
 }
 
-t_stack	*sort_three(t_stack *head)
+t_stack	*sort_three(t_stack *a)
 {
+	while (a->next != NULL)
+		a = a->next;
+	if (*(int *)a->data > *(int *)a->prev->data && *(int *)a->data > *(int *)a->prev->prev->data)
+		a = ra(a, 1);
 	while (a->next != NULL)
 		a = a->next;
 	if (*(int *)a->data > *(int *)a->prev->data)
 		a = sa(a, 1);
-	a = ra(a, 1);
+	if (smallest_in_stack(a, (int *)a->prev->prev->data))
+		a = rra(a, 1);
+	if (smallest_in_stack(a, (int *)a->data) && *(int *)a->prev->data > *(int *)a->prev->prev->data)
+	{
+		a = rra(a, 1);
+		a = sa(a, 1);
+	}
 	return (a);
 }
 
@@ -40,11 +50,15 @@ void	insertion_sort(t_stack *a, t_stack *b)
 {
 	while (stack_is_empty(a) >= 4)
 		b = pb(&a, b);
+	//aff_stack(a);
+	//ft_printf(" -\n a\n");
+	//aff_stack(b);
+	//ft_printf(" -\n b\n");
 	a = sort_three(a);
-	aff_stack(a);
-	ft_printf(" -\n a\n");
-	aff_stack(b);
-	ft_printf(" -\n b\n");
+	//aff_stack(a);
+	//ft_printf(" -\n a\n");
+	//aff_stack(b);
+	//ft_printf(" -\n b\n");
 	return ;
 }
 

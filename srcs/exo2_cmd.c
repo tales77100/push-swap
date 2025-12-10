@@ -63,12 +63,12 @@ int	ss(t_stack **a, t_stack **b)
 	return (1);
 }
 
-int	rra(t_stack *a, int act)
+t_stack	*rra(t_stack *a, int act)
 {
 	t_stack	*tail;
 
 	if (stack_is_empty(a) <= 1)
-		return (0);
+		return (a);
 	while (a->prev != NULL)
 		a = a->prev;
 	tail = a;
@@ -81,7 +81,7 @@ int	rra(t_stack *a, int act)
 	tail->prev = a;
 	if (act != 0)
 		ft_printf("rra\n");
-	return (1);
+	return (a);
 }
 
 int	rrb(t_stack *b, int act)

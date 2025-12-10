@@ -42,7 +42,7 @@ int	rr(t_stack **a, t_stack **b);
 t_stack	*sa(t_stack *a, int act);
 t_stack	*sb(t_stack *b, int act);
 int	ss(t_stack **a, t_stack **b);
-int	rra(t_stack *a, int act);
+t_stack	*rra(t_stack *a, int act);
 int	rrb(t_stack *b, int act);
 int	rrr(t_stack *a, t_stack *b);
 int	stack_is_empty(t_stack *head);
